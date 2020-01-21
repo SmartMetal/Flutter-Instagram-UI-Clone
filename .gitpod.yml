@@ -1,0 +1,24 @@
+image:
+  file: .gitpod.dockerfile
+
+tasks:
+- before: |
+    export PATH=$FLUTTER_HOME/bin:$ANDROID_HOME/bin:$ANDROID_HOME/platfrom-tools:$PATH
+    mkdir -p /home/gitpod/.android
+    touch /home/gitpod/.android/repositories.cfg  
+  init: |
+    echo "Installing Flutter SDK!!!"
+    cd /workspace && wget -q0 flutter_sdk.tar.xz https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.9.1+hotfix.4-stable.tar.xz && tar -xf flutter_sdk.tar.xz && rm -f flutter_sdk.tar.xz
+    echo "Installing Android SDK!!!"
+    mdkir -p /workspace/android-sdk && cd /workspace/android-sdk && wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip && unzip sdk-tools-linux-4333796.zip &&  rm -f sdk-tools-linux-433796.zip
+    echo "Init Flutter!!!"
+    flutter upgrade
+    flutter doctor --android-licenses
+    flutter pub get
+  command: |
+    flutter pub upgrade
+    echo "Instalation completed, ready to rock!!!"
+ vscode:
+  extensions:
+    - Dart-Code.dart-code@3.5.0-beta.1:Wg2nTABftVR/Dry4tqeY1w==
+    - Dart-Code.flutter@3.5.0:/kOacEWdiDRLyN/idUiM4A==
