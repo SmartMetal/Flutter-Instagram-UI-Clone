@@ -1,4 +1,5 @@
 FROM gitpod/workspace-full:latest
+FROM gitpod/workspace-full-vnc
 
 ENV ANDROID_HOME=/workspace/android-sdk \
     FLUTTER_ROOT=/workspace/flutter \
