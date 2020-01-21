@@ -14,7 +14,7 @@ tasks:
     echo "Init Flutter!!!"
     flutter upgrade
     flutter doctor --android-licenses
-    cd /workspace/* #this line needs to be set by user
+    cd /workspace/Flutter-Instagram-UI-Clone #this line needs to be set by user
     flutter pub get
   command: |
     flutter pub upgrade
